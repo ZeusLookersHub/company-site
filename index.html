@@ -12,32 +12,41 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #2E6EAB, #5CE3F8);
+            /* Gradient background with the logo's colors */
+            background: linear-gradient(135deg, #000000 0%, #333333 50%, #000000 100%); /* Darker gradient */
             font-family: Arial, sans-serif;
             color: #fff;
             text-align: center;
         }
         .container {
-            max-width: 500px;
+            max-width: 600px; /* Increased max-width for better display */
+            padding: 20px;
         }
         h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 3.5em; /* Slightly larger heading */
+            margin-top: 30px; /* Space between logo and heading */
+            margin-bottom: 15px;
+            color: #FFD700; /* Gold color for heading */
         }
         p {
-            font-size: 1.2em;
+            font-size: 1.3em; /* Slightly larger paragraph */
+            line-height: 1.6;
         }
         .logo {
-            width: 150px;
+            width: 80%; /* Adjusted width to be responsive */
+            max-width: 400px; /* Max width for the logo */
+            height: auto;
             margin-bottom: 20px;
+            /* Added a subtle shadow to make the logo pop on dark background */
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="Gemini_Generated_Image_btcy1btcy1btcy1b-removebg-preview.jpg" alt="Pick Logo" class="logo">
+        <img src="lookershub_logo.png" alt="LookersHub Logo" class="logo">
         <h1>Coming Soon</h1>
-        <p>We're working hard on something amazing for you! 🚀</p>
+        <p>We're crafting an unparalleled viewing experience just for you. Get ready! 🚀</p>
     </div>
 </body>
 </html>
