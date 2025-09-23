@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Gradient background with the logo's colors */
+    background: linear-gradient(135deg, #000000 0%, #333333 50%, #000000 100%); /* Darker gradient */
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+}
+.container {
+    max-width: 600px;
+    padding: 20px;
+}
+h1 {
+    font-size: 3.5em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #FFD700;
+}
+p {
+    font-size: 1.3em;
+    line-height: 1.6;
+}
+.logo {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+}
