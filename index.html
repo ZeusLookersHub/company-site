@@ -1,19 +1,39 @@
-<div class="container">
-  <img src="lookershub_logo.png" alt="LookersHub Logo" class="logo">
-  <h1>Coming Soon</h1>
-  <p>We're crafting an unparalleled viewing experience just for you. Get ready! 🚀</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LookersHub - Coming Soon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background particles -->
+  <canvas id="bg"></canvas>
+  
+  <!-- Main content -->
+  <div class="container">
+    <img src="lookershub_logo.png" alt="LookersHub Logo" class="logo">
+    <h1>Coming Soon</h1>
+    <p>We're crafting an unparalleled viewing experience just for you. Get ready! 🚀</p>
 
-  <!-- Countdown Timer -->
-  <div id="countdown">
-    <span id="days">00</span> Days 
-    <span id="hours">00</span> Hours 
-    <span id="minutes">00</span> Minutes 
-    <span id="seconds">00</span> Seconds
+    <!-- Countdown Timer -->
+    <div id="countdown">
+      <span id="days">00</span> Days 
+      <span id="hours">00</span> Hours 
+      <span id="minutes">00</span> Minutes 
+      <span id="seconds">00</span> Seconds
+    </div>
+
+    <!-- Email Form -->
+    <form class="subscribe-form" id="emailForm">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Notify Me</button>
+    </form>
   </div>
 
-  <!-- Email Form -->
-  <form class="subscribe-form" id="emailForm">
-    <input type="email" placeholder="Enter your email" required>
-    <button type="submit">Notify Me</button>
-  </form>
-</div>
+  <!-- Music -->
+  <audio id="bgMusic" src="your-music.mp3" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
