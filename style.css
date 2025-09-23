@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     /* Gradient background with the logo's colors */
-    background: linear-gradient(135deg, #000000 0%, #333333 50%, #000000 100%); /* Darker gradient */
+    background: linear-gradient(135deg, #000000 0%, #333333 50%, #000000 100%);
     font-family: Arial, sans-serif;
     color: #fff;
     text-align: center;
@@ -31,4 +31,9 @@ p {
     height: auto;
     margin-bottom: 20px;
     filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+    animation: fadeIn 2s; /* الحركة */
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
