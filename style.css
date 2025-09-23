@@ -1,26 +1,48 @@
+/* Basic setup */
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #000000 0%, #333333 50%, #000000 100%);
   font-family: Arial, sans-serif;
   color: #fff;
   text-align: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
 }
 
+/* Canvas background */
+canvas#bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Container for main content */
 .container {
+  position: relative;
+  z-index: 2;
   max-width: 600px;
+  margin: auto;
   padding: 20px;
+  top: 30%;
 }
 
+/* Logo */
+.logo {
+  width: 80%;
+  max-width: 350px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
+}
+
+/* Headings and text */
 h1 {
   font-size: 3.5em;
-  margin-top: 30px;
-  margin-bottom: 15px;
   color: #FFD700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
 }
 
 p {
@@ -28,59 +50,58 @@ p {
   line-height: 1.6;
 }
 
-.logo {
-  width: 60%;
-  max-width: 300px;
-  height: auto;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
-  animation: fadeIn 2s;
-}
-
-/* Countdown */
+/* Countdown Timer */
 #countdown {
   font-size: 1.5em;
   margin: 20px 0;
   color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 1s;
 }
 
 /* Email form */
 .subscribe-form {
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 2s;
 }
+
 .subscribe-form input {
   padding: 10px;
   font-size: 1em;
   border: none;
-  border-radius: 5px;
-  margin-right: 10px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
 }
+
 .subscribe-form button {
   padding: 10px 20px;
   font-size: 1em;
-  background: #FFD700;
-  color: #000;
   border: none;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
+  background-color: #FFD700;
+  color: #000;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* Social Links */
-.socials {
-  margin-top: 30px;
-}
-.socials a {
-  margin: 0 10px;
-  color: #FFD700;
-  text-decoration: none;
-  font-weight: bold;
-}
-.socials a:hover {
-  text-decoration: underline;
+.subscribe-form button:hover {
+  background-color: #FFC300;
 }
 
-/* Animation */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
