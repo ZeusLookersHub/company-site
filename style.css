@@ -1,107 +1,90 @@
-/* Basic setup */
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  text-align: center;
-  overflow: hidden;
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LookersHub - Coming Soon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background particles -->
+  <canvas id="bg"></canvas>
+  
+  <!-- Main content -->
+  <div class="container">
+    <img src="lookershub_logo.png" alt="LookersHub Logo" class="logo" id="logo">
+    <h1>Coming Soon</h1>
+    <p>We're crafting an unparalleled viewing experience just for you. Get ready! 🚀</p>
 
-/* Canvas background */
-canvas#bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
+    <!-- Countdown Timer -->
+    <div id="countdown">
+      <span id="days">00</span> Days 
+      <span id="hours">00</span> Hours 
+      <span id="minutes">00</span> Minutes 
+      <span id="seconds">00</span> Seconds
+    </div>
 
-/* Container for main content */
-.container {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  top: 30%;
-}
+    <!-- Email Form -->
+    <form class="subscribe-form" id="emailForm">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
 
-/* Logo */
-.logo {
-  width: 80%;
-  max-width: 350px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
-}
+  <!-- Game Modal -->
+  <div id="gameModal" class="game-modal">
+    <div class="game-modal-content">
+      <span class="close-game">&times;</span>
+      <div class="game-header">
+        <h2>🎮 لعبة XO التفاعلية</h2>
+        <div class="game-stats">
+          <div class="stat">
+            <span class="stat-label">X</span>
+            <span class="stat-value" id="scoreX">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">تعادل</span>
+            <span class="stat-value" id="scoreDraw">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">O</span>
+            <span class="stat-value" id="scoreO">0</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-board-container">
+        <div class="game-board" id="gameBoard">
+          <div class="cell" data-index="0"></div>
+          <div class="cell" data-index="1"></div>
+          <div class="cell" data-index="2"></div>
+          <div class="cell" data-index="3"></div>
+          <div class="cell" data-index="4"></div>
+          <div class="cell" data-index="5"></div>
+          <div class="cell" data-index="6"></div>
+          <div class="cell" data-index="7"></div>
+          <div class="cell" data-index="8"></div>
+        </div>
+        <div class="winning-line" id="winningLine"></div>
+      </div>
+      
+      <div class="game-controls">
+        <p id="gameStatus" class="game-status">دور اللاعب <span class="player-symbol">X</span></p>
+        <div class="control-buttons">
+          <button id="resetGame" class="game-btn reset-btn">🔄 إعادة</button>
+          <button id="newGame" class="game-btn new-btn">🎯 لعبة جديدة</button>
+          <button id="soundToggle" class="game-btn sound-btn">🔊 صوت</button>
+        </div>
+      </div>
+      
+      <!-- Particle effects container -->
+      <div id="particles" class="particles-container"></div>
+    </div>
+  </div>
 
-/* Headings and text */
-h1 {
-  font-size: 3.5em;
-  color: #FFD700;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-}
+  <!-- Music -->
+  <!-- <audio id="bgMusic" src="your-music.mp3" loop></audio> -->
 
-p {
-  font-size: 1.3em;
-  line-height: 1.6;
-}
-
-/* Countdown Timer */
-#countdown {
-  font-size: 1.5em;
-  margin: 20px 0;
-  color: #FFD700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-  opacity: 0;
-  animation: fadeInUp 1s forwards;
-  animation-delay: 1s;
-}
-
-/* Email form */
-.subscribe-form {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  opacity: 0;
-  animation: fadeInUp 1s forwards;
-  animation-delay: 2s;
-}
-
-.subscribe-form input {
-  padding: 10px;
-  font-size: 1em;
-  border: none;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-}
-
-.subscribe-form button {
-  padding: 10px 20px;
-  font-size: 1em;
-  border: none;
-  border-radius: 0 5px 5px 0;
-  background-color: #FFD700;
-  color: #000;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.subscribe-form button:hover {
-  background-color: #FFC300;
-}
-
-/* Fade-in animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  <script src="script.js"></script>
+</body>
+</html>
