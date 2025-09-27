@@ -1,108 +1,90 @@
-// ---------------------
-// Particles Background
-// ---------------------
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LookersHub - Coming Soon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background particles -->
+  <canvas id="bg"></canvas>
+  
+  <!-- Main content -->
+  <div class="container">
+    <img src="lookershub_logo.png" alt="LookersHub Logo" class="logo" id="logo">
+    <h1>Coming Soon</h1>
+    <p>We're crafting an unparalleled viewing experience just for you. Get ready! 🚀</p>
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    <!-- Countdown Timer -->
+    <div id="countdown">
+      <span id="days">00</span> Days 
+      <span id="hours">00</span> Hours 
+      <span id="minutes">00</span> Minutes 
+      <span id="seconds">00</span> Seconds
+    </div>
 
-class Particle {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 6 + 2;
-    this.speedX = (Math.random() - 0.5) * 2;
-    this.speedY = (Math.random() - 0.5) * 2;
-    this.color = Math.random() > 0.5 ? "#FFD700" : "#FFFFFF";
-  }
+    <!-- Email Form -->
+    <form class="subscribe-form" id="emailForm">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
 
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-  }
+  <!-- Game Modal -->
+  <div id="gameModal" class="game-modal">
+    <div class="game-modal-content">
+      <span class="close-game">&times;</span>
+      <div class="game-header">
+        <h2>🎮 لعبة XO التفاعلية</h2>
+        <div class="game-stats">
+          <div class="stat">
+            <span class="stat-label">X</span>
+            <span class="stat-value" id="scoreX">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">تعادل</span>
+            <span class="stat-value" id="scoreDraw">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">O</span>
+            <span class="stat-value" id="scoreO">0</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-board-container">
+        <div class="game-board" id="gameBoard">
+          <div class="cell" data-index="0"></div>
+          <div class="cell" data-index="1"></div>
+          <div class="cell" data-index="2"></div>
+          <div class="cell" data-index="3"></div>
+          <div class="cell" data-index="4"></div>
+          <div class="cell" data-index="5"></div>
+          <div class="cell" data-index="6"></div>
+          <div class="cell" data-index="7"></div>
+          <div class="cell" data-index="8"></div>
+        </div>
+        <div class="winning-line" id="winningLine"></div>
+      </div>
+      
+      <div class="game-controls">
+        <p id="gameStatus" class="game-status">دور اللاعب <span class="player-symbol">X</span></p>
+        <div class="control-buttons">
+          <button id="resetGame" class="game-btn reset-btn">🔄 إعادة</button>
+          <button id="newGame" class="game-btn new-btn">🎯 لعبة جديدة</button>
+          <button id="soundToggle" class="game-btn sound-btn">🔊 صوت</button>
+        </div>
+      </div>
+      
+      <!-- Particle effects container -->
+      <div id="particles" class="particles-container"></div>
+    </div>
+  </div>
 
-  draw() {
-    ctx.beginPath();
-    ctx.fillStyle = this.color;
-    ctx.shadowBlur = 15;
-    ctx.shadowColor = this.color;
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.closePath();
-  }
-}
+  <!-- Music -->
+  <!-- <audio id="bgMusic" src="your-music.mp3" loop></audio> -->
 
-const particlesArray = [];
-for (let i = 0; i < 50; i++) {
-  particlesArray.push(new Particle());
-}
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particlesArray.forEach(p => { p.update(); p.draw(); });
-  requestAnimationFrame(animate);
-}
-
-animate();
-
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-
-// ---------------------
-// Countdown Timer
-// ---------------------
-const countdownDate = new Date("December 31, 2025 23:59:59").getTime();
-
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = countdownDate - now;
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("days").innerText = days.toString().padStart(2, '0');
-  document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-  document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-  document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-
-  if (distance < 0) {
-    document.getElementById("countdown").innerText = "We're Live!";
-  }
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-// ---------------------
-// Email Collection
-// ---------------------
-const emailForm = document.getElementById("emailForm");
-
-emailForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = emailForm.querySelector("input").value;
-
-  let emails = JSON.parse(localStorage.getItem("emails")) || [];
-  emails.push(email);
-  localStorage.setItem("emails", JSON.stringify(emails));
-
-  alert("Thanks! Your email has been saved.");
-  emailForm.reset();
-});
-
-// ---------------------
-// Music Control
-// ---------------------
-const bgMusic = document.getElementById("bgMusic");
-bgMusic.volume = 0.3; // خفف الصوت
-// لتشغيل الموسيقى عند أول ضغطة
-document.body.addEventListener("click", () => {
-  bgMusic.play();
-}, { once: true });
+  <script src="script.js"></script>
+</body>
+</html>
